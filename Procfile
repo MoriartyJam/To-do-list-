@@ -1,1 +1,1 @@
-web: gunicorn Todo.wsqi --log-file -
+web: gunicorn --pythonpath Todo Todo.wsgi
