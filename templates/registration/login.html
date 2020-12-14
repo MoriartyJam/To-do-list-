@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+ {% block content %}
+
+     <ul>
+        {% if user.is_authenticated %}
+                <li><a style="color:#FFFFFF" href="{% url 'logout' %}"> Log out</a></li>
+                <li><a style="color:#FFFFFF">Welcome {{ user.username }}!</a></li>
+        {% elif not user.is_authenticated %}
+                    <li><a style="color:#FFFFFF" href="{% url 'signup' %}"> Sing up</a></li>
+                    <li><a style="color:#FFFFFF">Don`t have any account?</a></li>
+
+            {% endif %}
+<div class="center-column">
+    <h3>To Do</h3>
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+
+{% endblock content %}
+</div>

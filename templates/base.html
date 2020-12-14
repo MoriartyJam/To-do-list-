@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <meta charset="utf-8">
+<title>To Do</title>
+
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+
+    <ul>
+        {% if user.is_authenticated %}
+                <li><a style="color:#FFFFFF" href="{% url 'logout' %}"></span> Log out</a></li>
+                <li><a style="color:#FFFFFF">Welcome {{ user.username }}!</a></li>
+        {% elif not user.is_authenticated %}
+
+                <li><a style="color:#FFFFFF" href="{% url 'login'  %}"></span> Log In</a></li>
+                <li><a style="color:#FFFFFF">You are not logged in.</a></li>
+            {% endif %}
+
+
+
+    </ul>
+  <body>
+
+        {% block content %} {% endblock %}
+    </div>
+
+
+  </body>
+</html>
+</div>
