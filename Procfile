@@ -1,1 +1,1 @@
-web: gunicorn To-do-list-.wsqi --log-file -
+web: gunicorn Todo.wsqi --log-file -
